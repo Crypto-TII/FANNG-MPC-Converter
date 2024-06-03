@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package shares;
+
+message ShareRequest {
+    string batch_id = 1;
+}
+
+message ShareResponse {
+    message SharePair {
+        string share = 1;
+        string mac_share = 2;
+    }
+    repeated SharePair share_pairs = 1; // For stream elements
+    string mac_key_share = 2; // For the key shared once per stream
+}
+
+service ShareDealer {
+    rpc GetShares(ShareRequest) returns (stream ShareResponse);
+}

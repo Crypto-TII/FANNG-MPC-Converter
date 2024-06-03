@@ -1,0 +1,348 @@
+super_dealers:
+  - id: 0
+    sd_host: "localhost"
+    sd_port: 9998
+    sd_cert: "super_dealer-certificate.pem"
+    sd_privkey: "super_dealer-private-key.pem"
+    sd_mysql_host: "localhost"
+    sd_mysql_port: 3306
+    sd_mysql_user: "root"
+    sd_mysql_password: ""
+    sd_mysql_database: "super_dealer"
+    sd_postgres_host: "localhost"
+    sd_postgres_port: 5432
+    sd_postgres_user: "postgres"
+    sd_postgres_password: ""
+    sd_postgres_database: "super_dealer"
+
+clients:
+  - id: 0
+    mo_host: "localhost"
+    mo_port: 9999
+    mo_cert: "model_owner-certificate.pem"
+    client_mysql_host: "localhost"
+    client_mysql_port: 3306
+    client_mysql_user: "root"
+    client_mysql_password: ""
+    client_mysql_database: "client"
+    client_postgres_host: "localhost"
+    client_postgres_port: 5432
+    client_postgres_user: "postgres"
+    client_postgres_password: ""
+    client_postgres_database: "client"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+
+model_owners:
+  - id: 0
+    sd_host: "localhost"
+    sd_port: 9998
+    sd_cert: "super_dealer-certificate.pem"
+    mo_host: "localhost"
+    mo_port: 9999
+    mo_cert: "model_owner-certificate.pem"
+    mo_privkey: "model_owner-private-key.pem"
+    mo_mysql_host: "localhost"
+    mo_mysql_port: 3306
+    mo_mysql_user: "root"
+    mo_mysql_password: ""
+    mo_mysql_database: "model_owner"
+    mo_postgres_host: "localhost"
+    mo_postgres_port: 5432
+    mo_postgres_user: "postgres"
+    mo_postgres_password: ""
+    mo_postgres_database: "model_owner"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+
+dealers:
+  - id: 0
+    host: "localhost"
+    port: 50051
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_0"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_0"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9997
+    rest_cert: "dealer_0-certificate.pem"
+    rest_privkey: "dealer_0-private-key.pem"
+    grpc_cert: "grpc_dealer_0-certificate.pem"
+    grpc_privkey: "grpc_dealer_0-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+
+  - id: 1
+    host: "localhost"
+    port: 50052
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_1"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_1"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9996
+    rest_cert: "dealer_1-certificate.pem"
+    rest_privkey: "dealer_1-private-key.pem"
+    grpc_cert: "grpc_dealer_1-certificate.pem"
+    grpc_privkey: "grpc_dealer_1-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+  
+  - id: 2
+    host: "localhost"
+    port: 50053
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_2"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_2"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9995
+    rest_cert: "dealer_2-certificate.pem"
+    rest_privkey: "dealer_2-private-key.pem"
+    grpc_cert: "grpc_dealer_2-certificate.pem"
+    grpc_privkey: "grpc_dealer_2-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+      
+  - id: 3
+    host: "localhost"
+    port: 50054
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_3"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_3"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9994
+    rest_cert: "dealer_3-certificate.pem"
+    rest_privkey: "dealer_3-private-key.pem"
+    grpc_cert: "grpc_dealer_3-certificate.pem"
+    grpc_privkey: "grpc_dealer_3-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+      
+  - id: 4
+    host: "localhost"
+    port: 50055
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_4"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_4"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9993
+    rest_cert: "dealer_4-certificate.pem"
+    rest_privkey: "dealer_4-private-key.pem"
+    grpc_cert: "grpc_dealer_4-certificate.pem"
+    grpc_privkey: "grpc_dealer_4-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+  
+  - id: 5
+    host: "localhost"
+    port: 50056
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_5"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_5"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9992
+    rest_cert: "dealer_5-certificate.pem"
+    rest_privkey: "dealer_5-private-key.pem"
+    grpc_cert: "grpc_dealer_5-certificate.pem"
+    grpc_privkey: "grpc_dealer_5-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+      
+  - id: 6
+    host: "localhost"
+    port: 50057
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_6"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_6"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9991
+    rest_cert: "dealer_6-certificate.pem"
+    rest_privkey: "dealer_6-private-key.pem"
+    grpc_cert: "grpc_dealer_6-certificate.pem"
+    grpc_privkey: "grpc_dealer_6-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+
+  - id: 7
+    host: "localhost"
+    port: 50058
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_7"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_7"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9990
+    rest_cert: "dealer_7-certificate.pem"
+    rest_privkey: "dealer_7-private-key.pem"
+    grpc_cert: "grpc_dealer_7-certificate.pem"
+    grpc_privkey: "grpc_dealer_7-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+
+  - id: 8
+    host: "localhost"
+    port: 50059
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_8"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_8"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9989
+    rest_cert: "dealer_8-certificate.pem"
+    rest_privkey: "dealer_8-private-key.pem"
+    grpc_cert: "grpc_dealer_8-certificate.pem"
+    grpc_privkey: "grpc_dealer_8-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+
+  - id: 9
+    host: "localhost"
+    port: 50060
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_db: "dealer_9"
+    mysql_pwd: ""
+    postgres_host: "localhost"
+    postgres_port: 5432
+    postgres_user: "postgres"
+    postgres_db: "dealer_9"
+    postgres_pwd: ""
+    rest_host: "localhost"
+    rest_port: 9988
+    rest_cert: "dealer_9-certificate.pem"
+    rest_privkey: "dealer_9-private-key.pem"
+    grpc_cert: "grpc_dealer_9-certificate.pem"
+    grpc_privkey: "grpc_dealer_9-private-key.pem"
+    https: true
+    db_engine: 0 
+    model_id: 1
+    num_dealers: 10
+    max_share_size: 15000000
+    dealer_ids_str: "1 3 5" 
+    
+taas_dealers:
+  - id: 0
+    container_name: "tiitaas-dealer0"
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_pwd: ""
+
+  - id: 1
+    container_name: "tiitaas-dealer1"
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_pwd: ""
+    
+  - id: 2
+    container_name: "tiitaas-dealer2"
+    mysql_host: "localhost"
+    mysql_port: 3306
+    mysql_user: "root"
+    mysql_pwd: ""
+

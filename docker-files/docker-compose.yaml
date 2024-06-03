@@ -1,0 +1,39 @@
+version: '3'
+services:
+  development-environment:
+    build:
+      context: ./
+      dockerfile: development-environment.dockerfile
+    entrypoint: /bin/bash
+    stdin_open: true
+    tty: true
+    user: "root"
+    network_mode: "host"
+    volumes:
+      - /path/to/FANNG-MPC-Converter:/home # Add path to converter repo
+  mysql:
+    image: mysql:latest
+    user: "root"
+    network_mode: "host"
+    container_name: mysql-server
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    privileged: true
+    volumes:
+      - /path/to/mysql/:/var/lib/mysql #ADD PATH where you would like to store mysql tables in your local!
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres-server
+    network_mode: "host"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - /path/to/postgresql/:/var/lib/postgresql/data # ADD PATH where you would like to store your postgres data
+

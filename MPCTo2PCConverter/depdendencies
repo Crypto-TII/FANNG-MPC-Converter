@@ -1,0 +1,2 @@
+apt: python3-mysqldb python3-mysql.connector libcpprest-dev libmysqlcppconn-dev libcrypto++-dev 
+pip: fastapi[full] uvicorn[standard] requests
