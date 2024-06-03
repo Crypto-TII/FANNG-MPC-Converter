@@ -56,7 +56,7 @@ If the user wants to use taaslib dealers to generate the cryptographic materials
 test_mode = "3p"
 taas = True
 ```
-This requires the dealer tables to be created by taaslib(follow the instructions on the [taaslib repo](https://bitbucket.org/tiicrypto/tii-taaslib/src/master/)) and then does the conversion from 3 Party to 2 Party for the shares.
+This requires the dealer tables to be created by taaslib(follow the instructions on the taaslib repo(taaslib will be released in future). and then does the conversion from 3 Party to 2 Party for the shares.
 This mode will only create the tables using the [fill_db.py](fill_db.py) for Model Owner, Super Dealer and Client.
 
 #### Configurations for testing

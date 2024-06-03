@@ -32,7 +32,7 @@ The actors involved in this system are: **Super Dealer**, **Dealers**, **Model O
 |:---------|:--------|:-------------------------------|
 | batch_id | String  | Unique ID (UUID) for inference |
 
-### **Seed**: [ Client &rarr; Dealer (sent to each dealer) ] {TO BE DONE!}
+### **Seed**: [ Client &rarr; Dealer (sent to each dealer) ]
 #### Request Parameters (sent by client):
 
 | Argument | Type    | Comment                        |
@@ -43,13 +43,14 @@ The actors involved in this system are: **Super Dealer**, **Dealers**, **Model O
 
 | Argument | Type    | Comment                        |
 |:---------|:--------|:-------------------------------|
-| seed     | String  | Decimal representation of seed |
+| shares_seed     | String  | Decimal representation of seed |
+| mac_key_mask     | String  | Mask used for mac key |
 
 
 ## gRPC interactions
 To enhance communication efficiency between the Model Owner and Dealer, especially when handling substantial data volumes, we've chosen to transition from REST to gRPC. This decision stems from exhaustive experimentation and comprehensive comparisons tailored to the converter's specific use case. Our findings demonstrate that in scenarios demanding larger data transfers, gRPC surpasses REST, showcasing superior speed and efficiency.
 
-### **batch** : model-owner &rarr; dealer (sent to each dealer) {TO BE DONE!}
+### **batch** : model-owner &rarr; dealer (sent to each dealer)
 ##### Request parameters (sent by model owner):
 
 |argument | type | comment |

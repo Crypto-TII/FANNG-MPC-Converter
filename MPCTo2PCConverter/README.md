@@ -225,4 +225,4 @@ dealers:
 For database testing in MySQL and PostgreSQL in dockerized environment, refer to this [README](db_scripts/README.md).
 ## Generating API Swagger docs
 The proj/scripts folder contains a file `server.py` which implements the skeleton of the API (returning dummy results) as a FastAPI http server.
-See [README](scripts/README.md) in the script folder for details.
+See [README](proj/scripts/README.md) in the script folder for details.
