@@ -1,0 +1,118 @@
+services:
+  development-environment:
+    build:
+      context: ./
+      dockerfile: development-environment.dockerfile
+    entrypoint: /bin/bash
+    user: "root"
+    tty: true
+    networks: ["tiitaas"]
+    volumes:
+      - /path/to/FANNG-MPC-Converter:/home # Change PATH here!
+
+  database-taas-converter:
+    container_name: database-taas-converter
+    image: mysql:8.3.0
+    networks: ["tiitaas"]
+    privileged: true
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: out=$$(mysqladmin ping -h localhost -P 3306 -u root --password="" 2>&1); echo $$out | grep 'mysqld is alive' || { echo $$out; exit 1; } 
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      
+  dbcreate:
+    hostname: tiitaas-dbcreate
+    container_name: tiitaas-dbcreate
+    image: devopscrc/python-mysql-connector:v3
+    networks: ["tiitaas"]
+    restart: "no"
+    command: bash -c "while ! (mysqladmin ping --host=database-taas-converter --user=root > /dev/null 2>&1); do echo 'Waiting for DB' && sleep 1; done; echo 'Creating DB' && /tmp/tests/database.py create"
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+    - ./tii-taaslib/:/tmp
+
+  dealer0:
+    hostname: tiitaas-dealer0
+    container_name: tiitaas-dealer0
+    restart: "no"
+    build:
+      context: ./tii-taaslib
+      dockerfile:  tests/dealer0/Dockerfile
+    networks: ["tiitaas"]
+    environment:
+      TRIPLES_BATCH: 1
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "5000:5000"
+    depends_on:
+      database-taas-converter:
+        condition: service_healthy
+  dealer1:
+    hostname: tiitaas-dealer1
+    container_name: tiitaas-dealer1
+    restart: "no"
+    build:
+      context: ./tii-taaslib
+      dockerfile:  tests/dealer1/Dockerfile
+    networks: ["tiitaas"]
+    environment:
+      TRIPLES_BATCH: 1
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "5001:5001"
+    depends_on:
+      database-taas-converter:
+        condition: service_healthy
+
+  dealer2:
+    hostname: tiitaas-dealer2
+    container_name: tiitaas-dealer2
+    restart: "no"
+    build:
+      context: ./tii-taaslib
+      dockerfile:  tests/dealer2/Dockerfile
+    networks: ["tiitaas"]
+    environment:
+      TRIPLES_BATCH: 1
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "5002:5002"
+    depends_on:
+      database-taas-converter:
+        condition: service_healthy
+
+  dbtest:
+    hostname: tiitaas-dbtest
+    container_name: tiitaas-dbtest
+    image: devopscrc/python-mysql-connector:v3
+    networks: ["tiitaas"]
+    restart: "no"
+    command: bash -c "while ping -c1 tiitaas-dealer2 &>/dev/null; do echo 'Waiting for dealers' && sleep 30; done; echo 'Running tests' && /tmp/tests/database.py test"
+    volumes:
+    - ./tii-taaslib:/tmp
+    stop_grace_period: 30s
+    security_opt:
+      - seccomp:unconfined
+    depends_on:
+    - dealer0
+    - dealer1
+    - dealer2
+networks:
+  tiitaas:
+    name: tiitaas
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+          gateway: 10.0.0.1
+
+

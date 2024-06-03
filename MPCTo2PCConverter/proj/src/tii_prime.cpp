@@ -1,0 +1,4 @@
+#include "tii_prime.h"
+
+const uint128_t TiiPrime::p = uint128_t("170141183460469231731687303715887185921");
+const int128_t  TiiPrime::halfP = int128_t("85070591730234615865843651857943592960");
